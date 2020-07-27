@@ -1,0 +1,51 @@
+/*1. Crie um seletor que pega todos os elementos da tela e adicione nele o box-sizing: boder-box; e a
+font-family: 'Roboto', sans-serif;;
+*/
+* {
+  box-sizing: boder-box;
+  font-family: 'Roboto', sans-serif;
+}
+/*
+2. Crie oito variaveis no seu CSS com as cores a seguir: #2A7AE4, #000000, #9E9E9E, #F5F5F5, #e5e5e5,
+#FFFFFF, #6BD1FF e #00C86F;
+*/
+:root {
+  --primary: #2A7AE4;
+  --black: #000000;
+  --blackLighter: #9E9E9E;
+  --grayLight: #F5F5F5;
+  --grayMedium: #e5e5e5; 
+  --white: #FFFFFF;
+  --frontEnd: #6BD1FF;
+  --backEnd: #00C86F;
+}
+/*
+3. Zere a margin e padding do html e body;
+*/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+4. Fale para todas tags a herdar a cor do elemento pai;
+*/
+a {
+  color: inherit;
+}
+
+/*
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+*/
