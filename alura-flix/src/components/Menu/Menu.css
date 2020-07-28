@@ -11,7 +11,8 @@
     z-index: 100;
 	
     display: flex;
-    /*justify-content: space-between;*/
+	flex-flow: row no-wrap;
+    /*justify-content: space-around;*/
 	justify-content: space-between;
     align-items: center;
     
@@ -24,7 +25,18 @@
     
 	background: var(--black);
     border-bottom: 2px solid var(--primary);
+
 }
+
+
+/*Correção para posição do botão novo vídeo (Parte do texto desaparece para telas maiores que 801px)*/
+@media (min-width:801px) {
+	.Menu a:nth-child(2) {
+		margin-right: 10%;
+	}
+}
+/*Fim correção*/
+
 body {
     --bodyPaddingTop: 94px;
     padding-top: var(--bodyPaddingTop);
@@ -34,6 +46,7 @@ body {
         height: 40px;
         justify-content: center;  
     }
+	
     body {
         --bodyPaddingTop: 40px;
         padding-top: var(--bodyPaddingTop); 
@@ -55,10 +68,6 @@ body {
     display: inline-block;
     transition: opacity .3s;
 	
-	/*Correção para desaparecimento parcial do botão 'novo vídeo' para telas maiores que 800px */
-	position: absolute;
-	right: 150px;
-	/*Fim correção*/
 }
 
 .ButtonLink:hover,
@@ -76,5 +85,6 @@ body {
       border-radius: 0;
       border: 0;
       text-align: center;
+	  
     }
-  }
+}
