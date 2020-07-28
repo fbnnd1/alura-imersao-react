@@ -10,9 +10,7 @@ function Menu() {
             <a href="/">
                 <img className="Logo" src={Logo} alt="Logo da AluraFlix" />
             </a>
-            <a className="ButtonLink" href="/">
-                Novo vídeo
-            </a>
+            <a className="ButtonLink" href="/">Novo vídeo</a>
         </nav>
 
     );

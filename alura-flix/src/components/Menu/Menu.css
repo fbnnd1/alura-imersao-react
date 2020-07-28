@@ -9,13 +9,20 @@
     width: 100%;
     height: 94px;
     z-index: 100;
+	
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+	justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;left: 0;right: 0;
-    padding-left: 5%;padding-right: 5%;
-    background: var(--black);
+    
+	position: fixed;
+    top: 0;
+	left: 0;
+	right: 0;
+    padding-left: 5%;
+	padding-right: 5%;
+    
+	background: var(--black);
     border-bottom: 2px solid var(--primary);
 }
 body {
@@ -47,6 +54,11 @@ body {
     text-decoration: none;
     display: inline-block;
     transition: opacity .3s;
+	
+	/*Correção para desaparecimento parcial do botão 'novo vídeo' para telas maiores que 800px */
+	position: absolute;
+	right: 150px;
+	/*Fim correção*/
 }
 
 .ButtonLink:hover,
