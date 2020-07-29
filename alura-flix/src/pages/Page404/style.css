@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+
+Main h1 {
+    text-align:center;
+}
+
+Main iframe {
+    position:absolute;
+    height:auto;
+    min-height:400px;
+    min-width:400px;
+    width:90%;
+    border: none;
+}
+
+@media (max-width: 800px) {
+    
+    
+    Main {
+        height: 90vh;
+        width: 100%;
+
+    }
+    
+    Main iframe {
+        display: none;
+    }
+}
