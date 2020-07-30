@@ -7,7 +7,6 @@ Main h1 {
 }
 
 Main iframe {
-    position:absolute;
     height:auto;
     min-height:400px;
     min-width:400px;

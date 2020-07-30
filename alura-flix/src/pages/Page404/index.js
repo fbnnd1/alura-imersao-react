@@ -5,7 +5,7 @@ import PageDefault from '../../components/PageDefault';
 
 import './style.css';
 
-const Main = styled.main`
+const Wrapper1 = styled.div`
   background-color: var(--black);
   color: var(--white);
   height: auto;
@@ -13,25 +13,16 @@ const Main = styled.main`
   padding: 0% 5% 0% 5%;
   width:100%;
 `;
-/*
-const Footer1 = styled(Footer)`
-    width: 100%;
-`;
 
-const Wrapper1 = styled.div`
-    background: "#141414" ;
-    width:100%;
-`;
-*/
 function Page404() {
     return  (
         <PageDefault>
-            <Main>
+            <Wrapper1>
                <h1>Página não encontrada!</h1>
 
                 <iframe src="https://editor.p5js.org/fbnnd3/embed/QZiWjlb9d" title="As aventuras de hisptar"></iframe>
             
-            </Main>
+            </Wrapper1>
         </PageDefault>
     );
 }
