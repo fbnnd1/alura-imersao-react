@@ -29,13 +29,13 @@
 }
 
 
-/*CorreÁ„o para posiÁ„o do bot„o novo vÌdeo (Parte do texto desaparece para telas maiores que 801px)*/
+/*Corre√ß√£o para posi√ß√£o do bot√£o novo v√≠deo (Parte do texto desaparece para telas maiores que 801px)*/
 @media (min-width:801px) {
 	.Menu a:nth-child(2) {
 		margin-right: 10%;
 	}
 }
-/*Fim correÁ„o*/
+/*Fim corre√ß√£o*/
 
 body {
     --bodyPaddingTop: 94px;
