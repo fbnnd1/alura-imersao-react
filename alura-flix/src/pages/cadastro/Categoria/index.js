@@ -4,6 +4,23 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 
+import styled, { css } from 'styled-components';
+import TimerImg from '../../../assets/img/ampulheta-react.png';
+
+const Timer = styled.img`
+ animation:ampulheta1 5s linear infinite;
+
+@keyframes ampulheta1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+`;
+
+function stopTimer () {
+  document.getElementById("Timer1").style.display = "none";
+}
+//setTimeout(( ) => { document.getElementById("Timer1").style.visibility = "hidden"; }, 30000);
+
 function CadastroCategoria() {
   const valoresIniciais = {
     nome: '',
@@ -38,6 +55,7 @@ function CadastroCategoria() {
           if (respostaDoServer.ok) {
             const resposta = await respostaDoServer.json();
             setCategorias(resposta);
+            stopTimer();
             return;
           }
           throw new Error('Não foi possível pegar os dados');
@@ -114,7 +132,7 @@ function CadastroCategoria() {
           Cadastrar
         </Button>
       </form>
-
+      <Timer id="Timer1" src={TimerImg} alt="Ampulheta" width="40" height="40" />
       <ul>
         {categorias.map((categoria, indice) => (
           <li key={`${categoria}${indice}`}>
