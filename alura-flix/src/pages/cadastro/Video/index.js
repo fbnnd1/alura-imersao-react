@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
 import PageDefault from '../../../components/PageDefault';
 import useForm from '../../../hooks/useForm';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import videosRepository from '../../../repositories/videos';
 import categoriasRepository from '../../../repositories/categorias';
+
+const ButtonSubmitForm = styled(Button)`
+  background-color: var(--black);
+`;
 
 function CadastroVideo() {
   const history = useHistory();
@@ -70,9 +76,9 @@ function CadastroVideo() {
           suggestions={categoryTitles}
         />
 
-        <Button type="submit">
+        <ButtonSubmitForm as="button">
           Cadastrar
-        </Button>
+        </ButtonSubmitForm>
       </form>
 
       <br />
