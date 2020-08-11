@@ -1,15 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import LinkAux1 from '../../../components/LinkAux1';
 import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
+
+import styled from 'styled-components';
+
+
+const ButtonSubmitForm = styled(Button)`
+  background-color: var(--black);
+`;
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '',
+    url: '',
   };
 
   const { handleChange, values, clearForm } = useForm(valoresIniciais);
@@ -17,50 +26,55 @@ function CadastroCategoria() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    const URL_TOP = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://devsoutinhoflix.herokuapp.com/categorias';
-    // E a ju ama variáveis
-    fetch(URL_TOP)
-      .then(async (respostaDoServidor) => {
-        const resposta = await respostaDoServidor.json();
-        setCategorias([
-          ...resposta,
-        ]);
-      });
-
-    // setTimeout(() => {
-    //   setCategorias([
-    //     ...categorias,
-    //     {
-    //       id: 1,
-    //       nome: 'Front End',
-    //       descricao: 'Uma categoria bacanudassa',
-    //       cor: '#cbd1ff',
-    //     },
-    //     {
-    //       id: 2,
-    //       nome: 'Back End',
-    //       descricao: 'Outra categoria bacanudassa',
-    //       cor: '#cbd1ff',
-    //     },
-    //   ]);
-    // }, 4 * 1000);
-  }, []);
+  categoriasRepository
+    .getAll()
+    .then((categoriasFromServer) => {
+      setCategorias(categoriasFromServer);
+    });
+}, []);
 
   return (
     <PageDefault>
       <h1>
         Cadastro de Categoria:
-        {values.nome}
+        {values.titulo}
       </h1>
 
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
+
+        //Verificando se a categoria já foi cadastrada(Validação Simples)
+        const categoriaRepetida = categorias.find((categoria) => {
+          return categoria.titulo.toLowerCase() === values.titulo.toLowerCase();
+        });
+
+        if (categoriaRepetida) {
+          alert("Categoria já cadastrada!");
+          return;
+        }
+        //Fim de validação
+
+        const link_extra = {
+          text: values.descricao,
+          url: values.url
+        }
+
+        const newCategoria = {
+          titulo: values.titulo,
+          cor: values.cor,
+          link_extra,
+        }
+
         setCategorias([
           ...categorias,
-          values,
+          newCategoria,
         ]);
+
+        categoriasRepository.create(newCategoria)
+          .then(() => {
+            console.log('Cadastrou com sucesso!');
+            //history.push('/');
+          });
 
         clearForm();
       }}
@@ -68,9 +82,10 @@ function CadastroCategoria() {
 
         <FormField
           label="Nome da Categoria"
-          name="nome"
-          value={values.nome}
+          name="titulo"
+          value={values.titulo}
           onChange={handleChange}
+          requiredField={true}
         />
 
         <FormField
@@ -79,6 +94,7 @@ function CadastroCategoria() {
           name="descricao"
           value={values.descricao}
           onChange={handleChange}
+          requiredField={true}
         />
 
         <FormField
@@ -87,11 +103,21 @@ function CadastroCategoria() {
           name="cor"
           value={values.cor}
           onChange={handleChange}
+          requiredField={true}
         />
 
-        <Button>
+        <FormField
+          label="URL link extra"
+          type="text"
+          name="url"
+          value={values.url}
+          onChange={handleChange}
+          requiredField={false}
+        />
+
+        <ButtonSubmitForm  as="button">
           Cadastrar
-        </Button>
+        </ButtonSubmitForm>
       </form>
 
       {categorias.length === 0 && (
@@ -109,9 +135,9 @@ function CadastroCategoria() {
         ))}
       </ul>
 
-      <Link to="/">
+      <LinkAux1 to="/">
         Ir para home
-      </Link>
+      </LinkAux1>
     </PageDefault>
   );
 }

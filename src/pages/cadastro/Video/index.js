@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import PageDefault from '../../../components/PageDefault';
+import LinkAux1 from '../../../components/LinkAux1';
 import useForm from '../../../hooks/useForm';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
@@ -43,6 +44,12 @@ function CadastroVideo() {
           return categoria.titulo === values.categoria;
         });
 
+        //Verificação da categoria informada
+        if (!categoriaEscolhida) {
+          alert("Categoria informada não cadastrada!");
+          return;
+        }
+        
         videosRepository.create({
           titulo: values.titulo,
           url: values.url,
@@ -59,6 +66,7 @@ function CadastroVideo() {
           name="titulo"
           value={values.titulo}
           onChange={handleChange}
+          requiredField={true}
         />
 
         <FormField
@@ -66,6 +74,7 @@ function CadastroVideo() {
           name="url"
           value={values.url}
           onChange={handleChange}
+          requiredField={true}
         />
 
         <FormField
@@ -74,6 +83,7 @@ function CadastroVideo() {
           value={values.categoria}
           onChange={handleChange}
           suggestions={categoryTitles}
+          requiredField={true}
         />
 
         <ButtonSubmitForm as="button">
@@ -84,9 +94,9 @@ function CadastroVideo() {
       <br />
       <br />
 
-      <Link to="/cadastro/categoria">
+      <LinkAux1 to="/cadastro/categoria">
         Cadastrar Categoria
-      </Link>
+      </LinkAux1>
     </PageDefault>
   );
 }

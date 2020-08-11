@@ -40,6 +40,15 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "titulo": "Alura Lives",
+      "cor": "#800040",
+      "link_extra": {
+        "text": "Lives promovidas pela Alura Cursos.",
+        "url": "https://www.youtube.com/c/Alura"
+      },
+      "id": 6
     }
   ],
   "videos": [
@@ -186,6 +195,30 @@
       "categoriaId": 5,
       "titulo": "Resident Evil 8",
       "url": "https://www.youtube.com/watch?v=JSapXD9vxYA"
+    },
+    {
+      "titulo": "Video padrão",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "categoriaId": 1,
+      "id": 25
+    },
+    {
+      "titulo": "Imersão React Live #02",
+      "url": "https://www.youtube.com/watch?v=SpWFDTvgS9k",
+      "categoriaId": 6,
+      "id": 26
+    },
+    {
+      "titulo": "Imersao React Live #01",
+      "url": "https://www.youtube.com/watch?v=Dcn-tVmSxyU",
+      "categoriaId": 6,
+      "id": 27
+    },
+    {
+      "titulo": "Imersão React Live #03",
+      "url": "https://www.youtube.com/watch?v=ol_2pmyPzvI",
+      "categoriaId": 6,
+      "id": 28
     }
   ]
 }
