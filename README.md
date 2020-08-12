@@ -2,9 +2,9 @@
 
 ## Descrição
 
-Aplçicação desenvolvida durante a Imersão React promovida pela Alura.
+Aplicação desenvolvida durante a Imersão React promovida pela Alura usando-se o React.
 Essa aplicação consiste em uma galeria de vídeos categoriazados de acordo com o usuário onde ele pode criar categorias e acessar os locais onde os vídeos estão disponíveis.  
-Este sistema objetiva ter funcionalidade semelhante a galeria de vídeos da NetFlix.
+Este sistema objetiva ter a funcionalidade semelhante a galeria de vídeos da NetFlix.
 
 ## Notas Importantes
 
@@ -32,6 +32,12 @@ Este sistema objetiva ter funcionalidade semelhante a galeria de vídeos da NetF
     * Engenheiro de software na Suécia
     * Twitter: https://twitter.com/marcobrunodev
     * Linkedin: https://www.linkedin.com/in/marcobrunobr/
+
+## Funcionalidades
+
+* Visualização das categorias e vídeos cadastrados;
+* Cadastro de nova categoria;
+* Cadastro de novo vídeo.
 
 ## Canais de Comunicação
 
